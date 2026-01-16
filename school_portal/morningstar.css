@@ -1,0 +1,160 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: #ECECED;
+}
+
+.header-box {
+    width: auto;
+    height: 18.5vh;
+    background: #54001F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Back-Arrow {
+    height: 41.5vh;
+    transform: translate(25vw, -2vh);
+}
+
+.Left-Curl {
+    height: 49.3vh;
+    transform: translate(5.3vw, 5.3vh);
+}
+
+.Logo {
+    width: 7.8vw;
+}
+
+.Right-Curl {
+    height: 49.3vh;
+    transform: translate(-5.3vw, 5.3vh);
+}
+
+.Front-Arrow {
+    width: 11.5vw;
+    transform: translate(-25vw, -2vh);
+}
+
+.bodybody {
+    padding: 3.7vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-photo {
+    width: 18.65vw;
+}
+
+.Title {
+    text-align: center;
+    max-width: 29vw;
+    margin: 0;
+    line-height: 0.5;
+    margin-top: -25vh;
+}
+
+.Title h1 {
+    font-size: 1.28vw;
+    margin: 0;
+    color: #ACACAC;
+}
+
+.s1 {
+    color: #54001F;
+}
+
+.s2 {
+    color: #966682;
+}
+
+.Title p {
+    font-size: 0.96vw;
+    color: #ACACAC;
+    font-weight: bold;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}
+
+.login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 6.94vh;
+    width: 28.65vw;
+    background: #ACACAC;
+    color: #966682;
+    border-radius: 100px;
+    border: 2px solid #966682;
+    font-size: 1.67vw;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10vh;
+}
+
+.create {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 6.94vh;
+    width: 28.65vw;
+    background: #ACACAC;
+    color: #966682;
+    border-radius: 100px;
+    border: 2px solid #966682;
+    border-radius: 100px;
+    font-size: 1.67vw;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.right-photo {
+    width: 18.65vw;
+}
+
+.footer-box {
+    width: auto;
+    height: 18.5vh;
+    background: #54001F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.Contact {
+    position: absolute;
+    left: 2.87vh;
+}
+
+.contact1, .contact2, .contact3 {
+    font-size: 3vh;
+    color: #ACACAC;
+}
+
+.contact1 a, .contact2 a, .contact3 a {
+    font-size: 2vh;
+    color: #ACACAC;
+}
+
+.Center-Curl {
+    height: 32.3vh;
+}
+
+.Copyright {
+    height: 2.87vh;
+    position: absolute;
+    bottom: 2.87vh;
+    right: 2.87vh;
+}
