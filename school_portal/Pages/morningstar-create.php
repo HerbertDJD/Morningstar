@@ -1,10 +1,41 @@
+<?php
+require "../db.php";
+
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstname = trim($_POST["first_name"]);
+    $lastname  = trim($_POST["last_name"]);
+    $email     = trim($_POST["email"]);
+    $password  = $_POST["password"];
+    $confirm   = $_POST["confirm_password"];
+
+    if ($password !== $confirm) {
+        $message = "Passwords do not match!";
+    } else {
+        $role = 'teacher';
+
+        $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password, role) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $firstname, $lastname, $email, $password, $role);
+
+        if ($stmt->execute()) {
+            $message = "Account created successfully!";
+        } else {
+            $message = "Error: " . $stmt->error;
+        }
+
+        $stmt->close();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" text="text/css" href="morningstar-create.css">
-    <title>Document</title>
+    <title>Create Account</title>
 </head>
 <body>
     <div class="header-box">
@@ -16,24 +47,26 @@
     </div>
     <div class="bodybody">
         <img src="../Assets/PhotoL.png" alt="photo-left" class="left-photo">
-    <div class="medium">
-        <section class="form-box">
-        <form class="contact-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-            <div class="name-surname">
-                <input type="text" name="first_name" placeholder="First Name" required>
-                <input type="text" name="last_name" placeholder="Surname" required>
-            </div>
-            <div class="emaill">
-                <input type="email" name="email" placeholder="Email address" required>
-            </div>
-            <div class="passwords">
-                <input type="password" name="password" placeholder="Password" required>
-                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-            </div>
-            <button type="submit" class="create-account">Create Account</button>
-        </form>
-        </section>
-    </div>
+        <div class="medium">
+            <section class="form-box">
+                <!-- Display success or error messages -->
+                <?php if ($message) echo "<p style='color:red; text-align:center;'>$message</p>"; ?>
+                <form class="contact-form" method="POST" action="">
+                    <div class="name-surname">
+                        <input type="text" name="first_name" placeholder="First Name" required>
+                        <input type="text" name="last_name" placeholder="Surname" required>
+                    </div>
+                    <div class="emaill">
+                        <input type="email" name="email" placeholder="Email address" required>
+                    </div>
+                    <div class="passwords">
+                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="create-account">Create Account</button>
+                </form>
+            </section>
+        </div>
         <img src="../Assets/PhotoR.png" alt="photo-right" class="right-photo">
     </div>
     <div class="footer-box">
